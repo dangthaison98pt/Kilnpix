@@ -2,9 +2,10 @@ name: Development desktop builds
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+  workflow_dispatch:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths-ignore: 
     - "Translations/*"
     - "installer/*.pot"
@@ -15,15 +16,15 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GODOT_VERSION: 4.7.1
-  EXPORT_NAME: Pixelorama
+  GODOT_VERSION: 4.7.2
+  EXPORT_NAME: Kilnpix
 
 jobs:
   export-windows:
     name: Windows Export 🗔
     runs-on: ubuntu-latest
     container:
-      image: docker://barichello/godot-ci:4.7.1
+      image: docker://barichello/godot-ci:4.7.2
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v7
@@ -53,7 +54,7 @@ jobs:
     name: Linux Export 🐧
     runs-on: ubuntu-latest
     container:
-      image: docker://barichello/godot-ci:4.7.1
+      image: docker://barichello/godot-ci:4.7.2
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v7
