@@ -169,7 +169,7 @@ var preferences: Array[Preference] = [
 		"pixel_grid_color", "Canvas/PixelGridOptions/GridColor", "color", Color("21212191")
 	),
 	Preference.new("guide_color", "Canvas/GuideOptions/GuideColor", "color", Color.PURPLE),
-	Preference.new("checker_size", "Canvas/CheckerOptions/CheckerSizeValue", "value", 10),
+	Preference.new("checker_size", "Canvas/CheckerOptions/CheckerSizeValue", "value", 8),
 	Preference.new(
 		"checker_color_1",
 		"Canvas/CheckerOptions/CheckerColor1",
@@ -186,10 +186,10 @@ var preferences: Array[Preference] = [
 		"checker_follow_movement",
 		"Canvas/CheckerOptions/CheckerFollowMovement",
 		"button_pressed",
-		false
+		true
 	),
 	Preference.new(
-		"checker_follow_scale", "Canvas/CheckerOptions/CheckerFollowScale", "button_pressed", false
+		"checker_follow_scale", "Canvas/CheckerOptions/CheckerFollowScale", "button_pressed", true
 	),
 	Preference.new("tilemode_opacity", "Canvas/CheckerOptions/TileModeOpacity", "value", 1.0),
 	Preference.new(

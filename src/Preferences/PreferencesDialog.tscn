@@ -782,14 +782,14 @@ columns = 3
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Size of the transparent checker background"
+tooltip_text = "Size of the transparent checker background, in canvas pixels when it follows the zoom level"
 mouse_filter = 1
 text = "Checker size:"
 
 [node name="CheckerSizeValue" type="TextureProgressBar" parent="HSplitContainer/VBoxContainer/ScrollContainer/RightSide/Canvas/CheckerOptions" unique_id=151272836]
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Size of the transparent checker background"
+tooltip_text = "Size of the transparent checker background, in canvas pixels when it follows the zoom level"
 mouse_default_cursor_shape = 2
 theme_type_variation = &"ValueSlider"
 min_value = 1.0

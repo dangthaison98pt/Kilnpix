@@ -419,7 +419,7 @@ var guide_color := Color.PURPLE:
 			if guide is Guide:
 				guide.set_color(guide_color)
 ## Found in Preferences. The size of checkers in the checker background.
-var checker_size := 10:
+var checker_size := 8:
 	set(value):
 		if value == checker_size:
 			return
@@ -440,14 +440,14 @@ var checker_color_2 := Color(0.34, 0.35, 0.34, 1):
 		checker_color_2 = value
 		transparent_checker.update_rect()
 ## Found in Preferences. The color of second checker.
-var checker_follow_movement := false:
+var checker_follow_movement := true:
 	set(value):
 		if value == checker_follow_movement:
 			return
 		checker_follow_movement = value
 		transparent_checker.update_rect()
 ## Found in Preferences. If [code]true[/code], the checker follows zoom.
-var checker_follow_scale := false:
+var checker_follow_scale := true:
 	set(value):
 		if value == checker_follow_scale:
 			return
