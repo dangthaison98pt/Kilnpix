@@ -57,6 +57,7 @@
 #include "ui/theme.h"
 #include "ui/tooltips.h"
 
+#include <algorithm>
 #include <memory>
 
 namespace app {
@@ -1510,7 +1511,9 @@ ContextBar::~ContextBar()
 
 void ContextBar::onSizeHint(SizeHintEvent& ev)
 {
-  ev.setSizeHint(gfx::Size(0, 18*guiscale())); // TODO calculate height
+  // Grow with the UI font so entries are not clipped by taller (pixel) fonts.
+  int h = std::max(18*guiscale(), font()->height() + 6*guiscale());
+  ev.setSizeHint(gfx::Size(0, h));
 }
 
 void ContextBar::onToolSetOpacity(const int& newOpacity)
