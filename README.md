@@ -1,36 +1,40 @@
-# LibreSprite [![Liberapay](https://i.imgur.com/UOLKpPA.png "Support our work")](https://liberapay.com/LibreSprite/)
-[![Linux](https://github.com/LibreSprite/LibreSprite/actions/workflows/cmakeLinux.yml/badge.svg)](https://github.com/LibreSprite/LibreSprite/actions/workflows/cmakeLinux.yml) [![Windows x64](https://github.com/LibreSprite/LibreSprite/actions/workflows/cmakeWin64.yml/badge.svg?branch=master)](https://github.com/LibreSprite/LibreSprite/actions/workflows/cmakeWin64.yml) [![MacOS](https://github.com/LibreSprite/LibreSprite/actions/workflows/cmakeMacOs.yml/badge.svg)](https://github.com/LibreSprite/LibreSprite/actions/workflows/cmakeMacOs.yml) [![Android](https://github.com/LibreSprite/LibreSprite/actions/workflows/cmakeAndroid.yml/badge.svg)](https://github.com/LibreSprite/LibreSprite/actions/workflows/cmakeAndroid.yml)
+# Kilnpix
 
-## Introduction
-LibreSprite is a free and open source program for creating and animating your sprites.
-* Real-time animation previews.
-* Onion skinning.
-* Multiple sprites can be edited at once.
-* Ready to use palettes, or make your own.
-* Sprites are composed of both layers & frames.
-* Tiled drawing mode, useful to draw patterns and textures.
-* Pixel precise tools like filled contour, polygon, shading mode, etc.
-* Several file types supported for your sprites and animations.
+Kilnpix is a pixel art and sprite animation editor. It is a fork of
+[LibreSprite](https://github.com/LibreSprite/LibreSprite), which itself is the
+GPLv2 continuation of [Aseprite](https://www.aseprite.org) 1.1, so it works and
+feels like Aseprite: same tools, shortcuts, timeline and classic skin.
 
-## Download
-Get the [latest release](https://github.com/LibreSprite/LibreSprite/releases/latest) for Linux, MacOS, Windows or Android.
+Kilnpix changes:
+- Classic Aseprite skin by default.
+- Pixel UI fonts (SVN-Determination Sans, Tiny5 for small labels), drawn crisp.
+- Windows build and a web version published from this repository.
 
-## History
-LibreSprite originated as a fork of [Aseprite](https://www.aseprite.org), developed by [David Capello](https://github.com/dacap). Aseprite used to be distributed under the GNU General Public License version 2, but was moved to a proprietary license on [August 26th, 2016](https://github.com/aseprite/aseprite/commit/5ecc356a41c8e29977f8608d8826489d24f5fa6c).
+## Download / try it
 
-This fork was made on the [last commit](https://github.com/aseprite/aseprite/commit/03be4aa23db465219962f4c62410f628e7392545) covered by the GPL version 2 license, and is now developed independently of Aseprite.
+- Windows: download `kilnpix-windows-x86_64` from the latest
+  [Windows x86_64 workflow run](../../actions/workflows/cmakeWin64.yml) and run `kilnpix.exe`.
+- Web: https://dangthaison98pt.github.io/Kilnpix/
 
-## Contributing
-As LibreSprite has a newly budding community, we need help building the infrastructure of our development, support, and news networks. If you would like to help, please make yourself known at our [Discord](https://discord.gg/95gbyU5) or [Matrix](https://matrix.to/#/%23libresprite:matrix.org), and checkout our guide on [contributing](CONTRIBUTING.md).
+## Building
 
-## Compiling
-Don't worry, it isn't as hard as you might think! Just follow the instructions [here](INSTALL.md).
+GitHub Actions builds every push to `main` (see `.github/workflows`). To build
+locally, follow [INSTALL.md](INSTALL.md); the binary is named `kilnpix`.
 
-## Theming
-Don't like the default look of LibreSprite? Don't panic, you can download from the LibreSprite [resources](https://libresprite.github.io/#!/resources) repo. 
+## Staying in sync with LibreSprite
+
+```bash
+git fetch upstream
+git merge upstream/master
+```
+
+The upstream CMake target is still called `libresprite`; only its output name
+changes, which keeps merges small.
 
 ## License
-This program is distributed under the [GNU General Public License Version 2](LICENSE.txt).
 
-## Credits
-An ***enormous*** thank you to the original developers of [Aseprite](https://www.aseprite.org), without them and their original licensing this project wouldn’t exist. Additional shout-outs are given in the [list of contributors](CONTRIBUTORS.md). If you have submitted work to LibreSprite and would like to have your name on the list, please create a pull request or get in touch and we’ll make it happen.
+GNU General Public License v2, see [LICENSE.txt](LICENSE.txt). Anyone who receives
+a Kilnpix build is entitled to its source code. Credits and third-party notices are
+in [NOTICE.md](NOTICE.md).
+
+The previous Godot/Pixelorama-based Kilnpix lives on the `godot-legacy` branch.

@@ -124,7 +124,7 @@
       <option id="play_once" type="bool" default="false" />
     </section>
     <section id="theme" text="Theme">
-      <option id="selected" type="std::string" default="&quot;default&quot;" migrate="Skin.Selected" />
+      <option id="selected" type="std::string" default="&quot;classic&quot;" migrate="Skin.Selected" />
       <option id="font" type="std::string" migrate="Options.UserFont" />
       <option id="mini_font" type="std::string" migrate="Options.UserMiniFont" />
     </section>

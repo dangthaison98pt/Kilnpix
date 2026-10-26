@@ -39,10 +39,10 @@ static std::vector<cfg::CfgFile*> g_configs;
 ConfigModule::ConfigModule()
 {
   ResourceFinder rf;
-  rf.includeUserDir("libresprite.ini");
+  rf.includeUserDir("kilnpix.ini");
 
-  // getFirstOrCreateDefault() will create the LibreSprite directory
-  // inside the OS configuration folder (~/.config/libresprite/, etc.).
+  // getFirstOrCreateDefault() will create the Kilnpix directory
+  // inside the OS configuration folder (~/.config/kilnpix/, etc.).
   std::string fn = rf.getFirstOrCreateDefault();
 
   set_config_file(fn.c_str());

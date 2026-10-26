@@ -270,7 +270,7 @@ EM_JS(void, setup_touch_and_typing, (), {
   const typing = document.createElement('input');
   typing.id = 'typing';
   const attributes = {autocapitalize: 'off', autocorrect: 'off', autocomplete: 'off', spellcheck: 'false',
-                      enterkeyhint: 'done', 'aria-label': 'Typing for LibreSprite'};
+                      enterkeyhint: 'done', 'aria-label': 'Typing for Kilnpix'};
   for (const name in attributes)
     typing.setAttribute(name, attributes[name]);
   typing.style.cssText = 'position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;border:0;padding:0;margin:0;font-size:16px;pointer-events:none';

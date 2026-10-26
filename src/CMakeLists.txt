@@ -145,6 +145,9 @@ target_link_libraries(libresprite ${KEEP_INJECTIONS_BEGIN}
   ${FREETYPE_LIBRARIES}
   ${PLATFORM_LIBS})
 
+# Kilnpix: keep the upstream target name, ship the binary as kilnpix(.exe)
+set_target_properties(libresprite PROPERTIES OUTPUT_NAME kilnpix)
+
 install(TARGETS libresprite
   RUNTIME DESTINATION bin)
 

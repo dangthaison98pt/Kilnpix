@@ -137,7 +137,7 @@ void ResourceFinder::includeHomeDir(const char* filename)
   // %AppData%/LibreSprite/filename
   wchar_t* env = _wgetenv(L"AppData");
   if (env) {
-    std::string path = base::join_path(base::to_utf8(env), "LibreSprite");
+    std::string path = base::join_path(base::to_utf8(env), "Kilnpix");
     path = base::join_path(path, filename);
     addPath(path);
     m_default = path;
@@ -170,13 +170,13 @@ void ResourceFinder::includeUserDir(const char* filename)
     includeBinDir(filename);
   }
   else {
-    // %AppData%/LibreSprite/filename
+    // %AppData%/Kilnpix/filename
     includeHomeDir(filename);
   }
 
 #elif __APPLE__
 
-  // $HOME/Library/Application Support/LibreSprite/filename
+  // $HOME/Library/Application Support/Kilnpix/filename
   addPath(
     base::join_path(
       base::join_path(base::get_lib_app_support_path(), PACKAGE),
@@ -187,11 +187,11 @@ void ResourceFinder::includeUserDir(const char* filename)
   char buf[4096];
   const char* xdgdir = std::getenv("XDG_CONFIG_HOME");
   if((xdgdir) && (*xdgdir)) {
-    snprintf(buf, sizeof(buf), "%s/libresprite/%s", xdgdir, filename); // $XDG_CONFIG_HOME/libresprite/filename
+    snprintf(buf, sizeof(buf), "%s/kilnpix/%s", xdgdir, filename); // $XDG_CONFIG_HOME/kilnpix/filename
     addPath(buf);
   }
   else
-    includeHomeDir((std::string(".config/libresprite/") + filename).c_str());   // $HOME/.config/libresprite/filename
+    includeHomeDir((std::string(".config/kilnpix/") + filename).c_str());   // $HOME/.config/kilnpix/filename
 
 
 #endif

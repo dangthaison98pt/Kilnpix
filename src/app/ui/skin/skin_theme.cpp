@@ -296,6 +296,7 @@ void SkinTheme::loadFonts(const std::string& skinId)
       rf.includeDataDir(("skins/" + skinId + "/font.otf").c_str());
       rf.includeDataDir(("skins/" + skinId + "/font.ttf").c_str());
       rf.includeDataDir(("skins/" + skinId + "/minifont.png").c_str());
+      rf.includeDataDir("fonts/minifont.ttf");
       rf.includeDataDir("fonts/font.otf");
       rf.includeDataDir("fonts/font.ttf");
       rf.includeDataDir("fonts/minifont.png");
@@ -2358,6 +2359,21 @@ void SkinTheme::paintIcon(Widget* widget, Graphics* g, IButtonIcon* iconInterfac
     g->drawRgbaSurface(icon_bmp, x, y);
 }
 
+// Kilnpix: the bundled UI fonts are pixel fonts. They are drawn at their native
+// pixel grid without antialiasing, so screen scaling keeps them crisp.
+// Returns 0 for any other font.
+static int bundled_pixel_font_size(const std::string& path)
+{
+  if (base::string_to_lower(base::get_file_name(base::get_file_path(path))) != "fonts")
+    return 0;
+  auto name = base::string_to_lower(base::get_file_name(path));
+  if (name == "font.ttf")
+    return 13;                  // SVN-Determination Sans: 13.33 px per em
+  if (name == "minifont.ttf")
+    return 8;                   // Tiny5: 8 px per em
+  return 0;
+}
+
 std::shared_ptr<she::Font> SkinTheme::loadFont(const std::vector<std::string>& fonts, std::size_t size)
 {
   std::shared_ptr<she::Font> fallback;
@@ -2366,8 +2382,10 @@ std::shared_ptr<she::Font> SkinTheme::loadFont(const std::vector<std::string>& f
   for (auto& themeFont : fonts) {
     bool isTrueType = base::get_file_extension(themeFont) != "png";
     if (isTrueType) {
-      if (auto f = she::instance()->loadTrueTypeFont(themeFont.c_str(), size * guiscale())) {
-        f->setAntialias(true);
+      int pixelSize = bundled_pixel_font_size(themeFont);
+      int fontSize = (pixelSize ? pixelSize : int(size)) * guiscale();
+      if (auto f = she::instance()->loadTrueTypeFont(themeFont.c_str(), fontSize)) {
+        f->setAntialias(pixelSize == 0);
         // std::cout << "Loaded font: " << themeFont << std::endl;
         return std::shared_ptr<she::Font>(f);
       // } else {

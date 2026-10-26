@@ -1,12 +1,13 @@
 name: Web (wasm)
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
     tags:
       - '*'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -96,22 +97,30 @@ jobs:
       run: |
         mkdir web
         cp emscripten/build/libresprite.html emscripten/build/libresprite.js emscripten/build/libresprite.wasm emscripten/build/libresprite.data web/
-        cp emscripten/index.html web/
+        cp emscripten/index.html emscripten/coi-serviceworker.js web/
+        touch web/.nojekyll
     - name: Archive production artifacts
       uses: actions/upload-artifact@v7
       with:
-        name: ${{ steps.check_tag.outputs.has_tag == 'true' && format('libresprite-{0}-web', steps.check_tag.outputs.tag) || 'libresprite-web' }}
+        name: ${{ steps.check_tag.outputs.has_tag == 'true' && format('kilnpix-{0}-web', steps.check_tag.outputs.tag) || 'kilnpix-web' }}
         path: |
           web/*
         if-no-files-found: error
+    - name: Deploy to GitHub Pages
+      if: ${{ github.event_name != 'pull_request' && steps.check_tag.outputs.has_tag != 'true' }}
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        single-commit: true
+        folder: web
     - name: Package release zip
       if: ${{ steps.check_tag.outputs.has_tag == 'true' }}
       run: |
         cd web
-        zip -r ../libresprite-${{ steps.check_tag.outputs.tag }}-web.zip .
+        zip -r ../kilnpix-${{ steps.check_tag.outputs.tag }}-web.zip .
     - name: Attach the zip to the release
       if: ${{ steps.check_tag.outputs.has_tag == 'true' }}
       uses: softprops/action-gh-release@v3
       with:
-        files: libresprite-${{ steps.check_tag.outputs.tag }}-web.zip
+        files: kilnpix-${{ steps.check_tag.outputs.tag }}-web.zip
         fail_on_unmatched_files: true

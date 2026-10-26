@@ -801,7 +801,7 @@ bool App::isPortable()
     return base::is_file(
       base::join_path(
             base::get_file_path(base::get_app_path()),
-            "libresprite.ini")
+            "kilnpix.ini")
       );
   })();
   return iniFound;

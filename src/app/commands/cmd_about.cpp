@@ -41,7 +41,7 @@ void AboutCommand::onExecute(Context* context)
   Grid* grid = new Grid(2, false);
   Label* title = new Label(PACKAGE_AND_VERSION);
   title->setI18N();
-  Label* subtitle = new Label("Animated sprite editor & pixel art tool");
+  Label* subtitle = new Label("Pixel art tool based on LibreSprite");
   subtitle->setI18N();
   Separator* authors_separator1 = new Separator("Authors:", HORIZONTAL | TOP);
   authors_separator1->setI18N();

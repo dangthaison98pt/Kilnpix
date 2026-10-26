@@ -23,7 +23,7 @@
 #endif
 
 // General information
-#define PACKAGE "LibreSprite"
+#define PACKAGE "Kilnpix"
 #define COMMIT  "local build"
 #ifndef RELEASE_TAG
     #define VERSION "1.3-dev (" COMMIT ")"
@@ -32,10 +32,10 @@
 #endif
 #define PACKAGE_AND_VERSION PACKAGE " " VERSION
 
-#define WEBSITE                 "https://github.com/LibreSprite/LibreSprite/"
+#define WEBSITE                 "https://github.com/dangthaison98pt/Kilnpix/"
 #define WEBSITE_DOWNLOAD        WEBSITE "releases/"
-#define WEBSITE_CONTRIBUTORS    WEBSITE "graphs/contributors/"
-#define COPYRIGHT               "Copyright (C) 2001-2016 David Capello, 2016-2024 LibreSprite contributors"
+#define WEBSITE_CONTRIBUTORS    "https://github.com/LibreSprite/LibreSprite/graphs/contributors/"
+#define COPYRIGHT               "Copyright (C) 2001-2016 David Capello, 2016-2024 LibreSprite contributors, 2026 Kilnpix contributors"
 
 #include "base/base.h"
 #include "base/debug.h"
