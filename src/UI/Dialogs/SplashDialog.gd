@@ -1,37 +1,13 @@
 extends AcceptDialog
 
-const ROROTO_BREAKFAST := preload("uid://di1mne21susb2")
-const ROROTO_EVENING := preload("uid://coiphd8y07hid")
-const ROROTO_LUNCH := preload("uid://bt4gfcc0mycdl")
-
+# Kilnpix only ships artworks whose license allows redistribution in a fork.
 var artworks: Array[Artwork] = [
-	Artwork.new(
-		ROROTO_BREAKFAST,
-		"Roroto Sic",
-		"https://linktr.ee/Roroto_Sic",
-		Color.WHITE,
-		"Licensed under CC-BY-NC-ND, https://creativecommons.org/licenses/by-nc-nd/4.0/"
-	),
 	Artwork.new(
 		preload("res://assets/graphics/splash_screen/artworks/bearsaidno.png"),
 		"BearSaidNo",
 		"https://bearsaidno.neocities.org/",
 		Color.WHITE,
 		"Licensed under MIT"
-	),
-	Artwork.new(
-		preload("res://assets/graphics/splash_screen/artworks/kellay.png"),
-		"Kellay",
-		"https://bsky.app/profile/awfukellay.bsky.social",
-		Color.WHITE,
-		""
-	),
-	Artwork.new(
-		preload("res://assets/graphics/splash_screen/artworks/momo.png"),
-		"Momo",
-		"https://linktr.ee/mypeachtea",
-		Color.WHITE,
-		""
 	),
 ]
 
@@ -79,7 +55,7 @@ func _process(_delta: float) -> void:
 func _on_about_to_popup() -> void:
 	if Global.config_cache.has_section_key("preferences", "startup"):
 		show_on_startup.button_pressed = not Global.config_cache.get_value("preferences", "startup")
-	title = "Pixelorama" + " " + Global.current_version
+	title = "Kilnpix" + " " + Global.current_version
 	if artworks.is_empty():
 		$Contents/SplashArt/ChangeArtBtnLeft.visible = false
 		$Contents/SplashArt/ChangeArtBtnRight.visible = false
@@ -91,17 +67,6 @@ func _on_about_to_popup() -> void:
 
 func change_artwork(direction: int) -> void:
 	chosen_artwork = wrapi(chosen_artwork + direction, 0, artworks.size())
-
-	# Roroto v1.2 specific code, used to determine which artwork to show
-	# depending on the current time of day.
-	if chosen_artwork == 0:
-		var roroto_time := Time.get_time_dict_from_system()
-		if roroto_time.hour >= 4 and roroto_time.hour < 12:
-			artworks[chosen_artwork].artwork = ROROTO_BREAKFAST
-		if roroto_time.hour >= 12 and roroto_time.hour < 19:
-			artworks[chosen_artwork].artwork = ROROTO_LUNCH
-		if roroto_time.hour < 4 or roroto_time.hour >= 19:
-			artworks[chosen_artwork].artwork = ROROTO_EVENING
 
 	splash_art_texturerect.texture = artworks[chosen_artwork].artwork
 	set_process(artworks[chosen_artwork].artwork is AnimatedTexture)

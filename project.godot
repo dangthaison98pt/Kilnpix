@@ -10,13 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Pixelorama"
-config/description="Unleash your creativity with Pixelorama, a powerful and accessible open-source pixel art multitool. Whether you want to create sprites, tiles, animations, or just express yourself in the language of pixel art, this software will realize your pixel-perfect dreams with a vast toolbox of features."
+config/name="Kilnpix"
+config/description="Kilnpix, a pixel art and sprite editor based on Pixelorama."
 config/version="v1.2.4-rc2"
-config/tags=PackedStringArray("pixelorama")
+config/tags=PackedStringArray("kilnpix")
 run/main_scene="res://src/Main.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="pixelorama"
+config/custom_user_dir_name="kilnpix"
 config/project_settings_override="user://override.cfg"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.7")

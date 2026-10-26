@@ -55,13 +55,14 @@ layout_mode = 2
 
 [node name="PixeloramaSlogan" type="Label" parent="AboutUI/IconsButtons/SloganAndLinks/VBoxContainer" unique_id=1005985297]
 layout_mode = 2
-text = "Pixelorama - Pixelate your dreams!"
+text = "Kilnpix - based on Pixelorama"
 label_settings = SubResource("LabelSettings_bkh2e")
 
 [node name="LinkButtons" type="HBoxContainer" parent="AboutUI/IconsButtons/SloganAndLinks/VBoxContainer" unique_id=1020709967]
 layout_mode = 2
 
 [node name="Website" type="Button" parent="AboutUI/IconsButtons/SloganAndLinks/VBoxContainer/LinkButtons" unique_id=969908014]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -71,9 +72,10 @@ text = "Website"
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
-text = "Source Code"
+text = "Pixelorama (upstream)"
 
 [node name="OramaLogo" type="TextureRect" parent="AboutUI/IconsButtons" unique_id=676029382]
+visible = false
 layout_mode = 2
 texture = ExtResource("4")
 
@@ -193,7 +195,7 @@ layout_mode = 2
 
 [node name="MadeBy" type="Label" parent="AboutUI" unique_id=954354376]
 layout_mode = 2
-text = "Developed by Orama Interactive"
+text = "Kilnpix is a fork of Pixelorama, developed by Orama Interactive"
 
 [node name="Copyright" type="Label" parent="AboutUI" unique_id=1672260869]
 layout_mode = 2

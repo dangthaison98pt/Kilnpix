@@ -4,12 +4,10 @@ enum ColorModes { RGBA, INDEXED }
 
 const DOCS_URL := "https://www.pixelorama.org/Introduction/"
 const ISSUES_URL := "https://github.com/Orama-Interactive/Pixelorama/issues"
-const SUPPORT_URL := "https://www.patreon.com/OramaInteractive"
 # gdlint: ignore=max-line-length
 const CHANGELOG_URL := "https://github.com/Orama-Interactive/Pixelorama/blob/master/CHANGELOG.md#v123---2026-09-15"
 const EXTERNAL_LINK_ICON := preload("res://assets/graphics/misc/external_link.svg")
 const PIXELORAMA_ICON := preload("res://assets/graphics/icons/icon_16x16.png")
-const HEART_ICON := preload("res://assets/graphics/misc/heart.svg")
 
 var text_server := TextServerManager.get_primary_interface()
 var recent_projects := []
@@ -659,8 +657,7 @@ func _setup_help_menu() -> void:
 		"Restore Backup": &"",
 		"Open Editor Data Folder": "open_editor_data_folder",
 		"Changelog": "changelog",
-		"About Pixelorama": "about_pixelorama",
-		"Support Pixelorama's Development": &"",
+		"About Kilnpix": "about_pixelorama",
 	}
 	var i := 0
 	for item in help_menu_items:
@@ -673,8 +670,6 @@ func _setup_help_menu() -> void:
 			icon = EXTERNAL_LINK_ICON
 		if i == Global.HelpMenu.ABOUT_PIXELORAMA:
 			icon = PIXELORAMA_ICON
-		elif i == Global.HelpMenu.SUPPORT_PIXELORAMA:
-			icon = HEART_ICON
 		_set_menu_shortcut(help_menu_items[item], help_menu, i, item, false, false, icon)
 
 		i += 1
@@ -761,7 +756,7 @@ func _on_open_last_project_file_menu_option_pressed() -> void:
 	if Global.config_cache.has_section_key("data", "last_project_path"):
 		main.load_last_project()
 	else:
-		Global.popup_error("You haven't saved or opened any project in Pixelorama yet!")
+		Global.popup_error("You haven't saved or opened any project in Kilnpix yet!")
 
 
 func _save_project_file() -> void:
@@ -1268,8 +1263,5 @@ func help_menu_id_pressed(id: int) -> void:
 			OS.shell_open(CHANGELOG_URL)
 		Global.HelpMenu.ABOUT_PIXELORAMA:
 			about_dialog.popup()
-		Global.HelpMenu.SUPPORT_PIXELORAMA:
-			OS.shell_open(SUPPORT_URL)
-			SteamManager.set_achievement("ACH_SUPPORT_DEVELOPMENT")
 		_:
 			_handle_metadata(id, help_menu)

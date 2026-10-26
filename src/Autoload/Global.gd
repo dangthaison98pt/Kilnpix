@@ -139,7 +139,7 @@ const CONFIG_PATH := "user://config.ini"
 ## The file used to save preferences that use [method _save_to_override_file].
 const OVERRIDE_FILE := "user://override.cfg"
 ## The name of folder containing Pixelorama preferences.
-const HOME_SUBDIR_NAME := "pixelorama"
+const HOME_SUBDIR_NAME := "kilnpix"
 ## The name of folder that contains subdirectories for users to place brushes, palettes, patterns.
 const CONFIG_SUBDIR_NAME := "pixelorama_data"
 ## The path of the directory where the UI layouts are being stored.
@@ -887,7 +887,7 @@ func is_ctrl_or_cmd_pressed() -> bool:
 ## Print this when Pixelorama launches so it can be stored in the log files.
 ## This info may help us better debug issues certain users may have.
 func get_system_info() -> String:
-	var pixelorama_ver := "Pixelorama " + current_version
+	var pixelorama_ver := "Kilnpix " + current_version
 	var distribution_name := OS.get_distribution_name()
 	if distribution_name.is_empty():
 		distribution_name = OS.get_name()

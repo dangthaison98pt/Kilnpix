@@ -1,4 +1,6 @@
 [gd_scene format=3 uid="uid://bnpb1aip3wdvw"]
+visible = false
+visible = false
 
 [ext_resource type="Script" uid="uid://qtjfdid13awe" path="res://src/UI/Dialogs/SplashDialog.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d1oxrkwndy5fi" path="res://assets/graphics/timeline/move_arrow.png" id="3"]
@@ -281,7 +283,7 @@ texture_normal = ExtResource("11")
 [node name="CopyrightLabel" type="Label" parent="Contents" unique_id=104128794]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "©2019-present by Orama Interactive and contributors"
+text = "Kilnpix, based on Pixelorama ©2019-present by Orama Interactive and contributors"
 label_settings = SubResource("LabelSettings_32icc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Contents/CopyrightLabel" unique_id=458300439]
