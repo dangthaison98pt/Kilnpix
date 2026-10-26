@@ -198,6 +198,7 @@ var loaded_fonts: Array[Font] = [
 	preload("res://assets/fonts/Roboto-Regular.ttf"),
 	preload("res://assets/fonts/Tiny5.ttf"),
 	preload("res://assets/fonts/PixelifySans.ttf"),
+	preload("res://assets/fonts/SVN-Determination Sans.ttf"),
 ]
 
 # Canvas related stuff
@@ -254,7 +255,7 @@ var theme_font := loaded_fonts[theme_font_index]:
 		if is_instance_valid(control) and is_instance_valid(control.theme):
 			control.theme.default_font = theme_font
 ## Found in Preferences. The index of the font used by the interface.
-var theme_font_index := 2:
+var theme_font_index := 4:
 	set(value):
 		theme_font_index = value
 		if theme_font_index < loaded_fonts.size():
@@ -267,7 +268,7 @@ var theme_font_index := 2:
 			else:
 				theme_font = loaded_fonts[1]  # Fall back to Roboto if out of bounds
 ## Found in Preferences. The font size used by the interface.
-var font_size := 16
+var font_size := 13
 ## Found in Preferences. The orientation of the screen, used by mobile devices.
 var screen_orientation := DisplayServer.SCREEN_SENSOR:
 	set(value):

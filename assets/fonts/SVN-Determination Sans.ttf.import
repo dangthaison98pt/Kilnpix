@@ -1,0 +1,36 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://6xn2r4v64cou"
+path="res://.godot/imported/SVN-Determination Sans.ttf-bfedd88cb45ab2c3e36de8a015d37c37.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/SVN-Determination Sans.ttf"
+dest_files=["res://.godot/imported/SVN-Determination Sans.ttf-bfedd88cb45ab2c3e36de8a015d37c37.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=0
+subpixel_positioning=0
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[Resource("uid://cvc4lelf6hl7x", "res://assets/fonts/Roboto-Regular.ttf"), Resource("uid://xy0qnokltxeq", "res://assets/fonts/DroidSansFallback.woff2")]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

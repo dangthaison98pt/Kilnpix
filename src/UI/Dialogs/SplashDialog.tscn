@@ -40,7 +40,7 @@ line_spacing = 0.0
 font = SubResource("FontVariation_jexkq")
 
 [sub_resource type="LabelSettings" id="LabelSettings_32icc"]
-font_size = 16
+font_size = 13
 
 [node name="SplashDialog" type="AcceptDialog" unique_id=2039648546]
 canvas_item_default_texture_filter = 0

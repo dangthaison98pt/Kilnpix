@@ -26,6 +26,16 @@ with or endorsed by Orama Interactive.
 | Droid Sans Fallback font | Apache-2.0 | [assets/fonts/DroidSansFallback-License.txt](assets/fonts/DroidSansFallback-License.txt) |
 | Tiny5 font (default UI font) | SIL OFL 1.1, © The Tiny5 Project Authors | [assets/fonts/Tiny5-License.txt](assets/fonts/Tiny5-License.txt) |
 | Pixelify Sans font | SIL OFL 1.1, © The Pixelify Sans Project Authors | [assets/fonts/PixelifySans-License.txt](assets/fonts/PixelifySans-License.txt) |
+| SVN-Determination Sans font (default UI font) | No license stated, see below | `assets/fonts/SVN-Determination Sans.ttf` |
+
+### SVN-Determination Sans
+
+The font ships without a license. Its embedded copyright notice reads: "8-bit Operator
+(c) 2009 - 2014 Grand Chaos Productions. Based on spritesheet by Leafia_Barrett.
+Modified by theFIZZYnator. Undertale is copyright and intellectual property of Toby Fox."
+The Vietnamese "SVN" version is credited to UKYO (2022). It is included at the
+maintainer's own risk; the bundled Tiny5 and Pixelify Sans fonts (OFL) are
+license-clean alternatives selectable in Preferences.
 | Splash artwork by BearSaidNo | MIT | `src/UI/Dialogs/SplashDialog.gd` |
 | DawnBringer 32 palette | by DawnBringer, free to use | `pixelorama_data/Palettes/DawnBringer 32.json` |
 | Installer translation scripts (`installer/utils`) | GPL-3.0 (build-time only, not shipped in the app) | [installer/utils/LICENSE](installer/utils/LICENSE) |

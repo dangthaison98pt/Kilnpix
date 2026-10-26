@@ -34,8 +34,8 @@ var preferences: Array[Preference] = [
 	),
 	Preference.new("ffmpeg_path", "Startup/StartupContainer/FFMPEGPath", "text", ""),
 	Preference.new("shrink", "%ShrinkSlider", "value", Global.auto_content_scale_factor),
-	Preference.new("theme_font_index", "%FontOptionButton", "selected", 2),
-	Preference.new("font_size", "%FontSizeSlider", "value", 16),
+	Preference.new("theme_font_index", "%FontOptionButton", "selected", 4),
+	Preference.new("font_size", "%FontSizeSlider", "value", 13),
 	Preference.new(
 		"dim_on_popup", "Interface/InterfaceOptions/DimCheckBox", "button_pressed", true
 	),
