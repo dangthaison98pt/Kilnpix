@@ -1115,6 +1115,11 @@ func open_font_file(path: String) -> FontFile:
 		font_file.load_bitmap_font(path)
 	else:
 		font_file.load_dynamic_font(path)
+		# Kilnpix: user fonts are usually pixel fonts, so render them without smoothing.
+		font_file.antialiasing = TextServer.FONT_ANTIALIASING_NONE
+		font_file.hinting = TextServer.HINTING_NONE
+		font_file.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
+		font_file.fallbacks = [Global.loaded_fonts[1]]
 	return font_file
 
 
