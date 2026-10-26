@@ -15,6 +15,13 @@ var system_accent_color := Color(DisplayServer.get_accent_color(), 1.0)
 var system_theme := ThemeVariation.new(MAIN_THEME, "System", system_base_color, system_accent_color)
 var system_theme_index := -1
 var themes: Array[ThemeVariation] = [
+	# Kilnpix: Aseprite-like presets, with a darker workspace behind the canvas.
+	ThemeVariation.new(
+		MAIN_THEME, "Aseprite", Color("d3cbbe"), Color("2f5f8f"), 0.3, Color("655561")
+	),
+	ThemeVariation.new(
+		MAIN_THEME, "Aseprite Dark", Color("3a3740"), Color("7aa6d6"), 0.3, Color("24222a")
+	),
 	ThemeVariation.new(MAIN_THEME, "Dark"),
 	system_theme,
 	ThemeVariation.new(MAIN_THEME, "Light", Color("e7f1f7"), Color("484b68")),
@@ -33,19 +40,23 @@ class ThemeVariation:
 	var base_color: Color
 	var accent_color: Color
 	var contrast := 0.3
+	## Color of the workspace behind the canvas. Transparent means derived from the palette.
+	var canvas_color := Color.TRANSPARENT
 
 	func _init(
 		_theme: Theme,
 		_name: String,
 		_base_color := Color.TRANSPARENT,
 		_accent_color := Color.TRANSPARENT,
-		_contrast := 0.3
+		_contrast := 0.3,
+		_canvas_color := Color.TRANSPARENT
 	) -> void:
 		theme = _theme
 		name = _name
 		base_color = _base_color
 		accent_color = _accent_color
 		contrast = _contrast
+		canvas_color = _canvas_color
 
 	func get_name() -> String:
 		if name.is_empty():
@@ -140,6 +151,9 @@ func apply_theme(base_theme_var: ThemeVariation) -> void:
 			Global.theme_color_contrast
 		)
 	var theme := ThemeUtils.generate_theme(theme_var)
+	if Global.theme_preset_index != CUSTOM_THEME_INDEX:
+		if not base_theme_var.canvas_color.is_equal_approx(Color.TRANSPARENT):
+			theme.set_color(&"clear_color", &"Misc", base_theme_var.canvas_color)
 	Global.theme_font_index = Global.theme_font_index  # Trigger the setter
 	if theme.default_font != Global.theme_font:
 		theme.default_font = Global.theme_font

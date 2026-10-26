@@ -56,6 +56,8 @@ func _on_about_to_popup() -> void:
 	if Global.config_cache.has_section_key("preferences", "startup"):
 		show_on_startup.button_pressed = not Global.config_cache.get_value("preferences", "startup")
 	title = "Kilnpix" + " " + Global.current_version
+	# LabelSettings default to white text, which is unreadable on light themes.
+	$Contents/CopyrightLabel.label_settings.font_color = get_theme_color(&"font_color", &"Label")
 	if artworks.is_empty():
 		$Contents/SplashArt/ChangeArtBtnLeft.visible = false
 		$Contents/SplashArt/ChangeArtBtnRight.visible = false

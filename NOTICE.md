@@ -24,6 +24,8 @@ with or endorsed by Orama Interactive.
 | cleanEdge, OmniScale, Material Maker, gd-obj | see Help > About > Third-party Licenses | `src/UI/Dialogs/AboutDialog.gd` |
 | Roboto font | Apache-2.0 | [assets/fonts/Roboto-License.txt](assets/fonts/Roboto-License.txt) |
 | Droid Sans Fallback font | Apache-2.0 | [assets/fonts/DroidSansFallback-License.txt](assets/fonts/DroidSansFallback-License.txt) |
+| Tiny5 font (default UI font) | SIL OFL 1.1, © The Tiny5 Project Authors | [assets/fonts/Tiny5-License.txt](assets/fonts/Tiny5-License.txt) |
+| Pixelify Sans font | SIL OFL 1.1, © The Pixelify Sans Project Authors | [assets/fonts/PixelifySans-License.txt](assets/fonts/PixelifySans-License.txt) |
 | Splash artwork by BearSaidNo | MIT | `src/UI/Dialogs/SplashDialog.gd` |
 | DawnBringer 32 palette | by DawnBringer, free to use | `pixelorama_data/Palettes/DawnBringer 32.json` |
 | Installer translation scripts (`installer/utils`) | GPL-3.0 (build-time only, not shipped in the app) | [installer/utils/LICENSE](installer/utils/LICENSE) |
