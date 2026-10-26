@@ -188,6 +188,7 @@ var current_project_index := 0:
 		project_switched.disconnect(current_project.change_project)
 		cel_switched.emit()
 var default_layouts: Array[DockableLayout] = [
+	preload("res://assets/layouts/Aseprite.tres"),
 	preload("res://assets/layouts/Default.tres"),
 	preload("res://assets/layouts/Tallscreen.tres"),
 ]
@@ -352,12 +353,12 @@ var reset_swap_on_shortcut_release := false
 var swap_color_on_tool_swap := false
 ## Found in Preferences.
 ## If enabled, the right mouse button is always mapped to the same tool as the left button.
-var single_tool_mode := DisplayServer.is_touchscreen_available():
+var single_tool_mode := true:
 	set(value):
 		single_tool_mode = value
 		single_tool_mode_changed.emit(single_tool_mode)
 ## Found in Preferences.
-var share_options_between_tools := false:
+var share_options_between_tools := true:
 	set(value):
 		share_options_between_tools = value
 		share_options_between_tools_changed.emit(share_options_between_tools)
@@ -604,9 +605,9 @@ var default_licence := ""
 
 # Tools & options
 ## Found in Preferences. If [code]true[/code], the cursor's left tool icon is visible.
-var show_left_tool_icon := true
+var show_left_tool_icon := false
 ## Found in Preferences. If [code]true[/code], the cursor's right tool icon is visible.
-var show_right_tool_icon := true
+var show_right_tool_icon := false
 ## Found in Preferences. If [code]true[/code], the left tool's brush indicator is visible.
 var left_square_indicator_visible := true
 ## Found in Preferences. If [code]true[/code], the right tool's brush indicator is visible.

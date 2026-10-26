@@ -292,22 +292,23 @@ func _handle_layout_files() -> void:
 	if not DirAccess.dir_exists_absolute(Global.LAYOUT_DIR):
 		DirAccess.make_dir_absolute(Global.LAYOUT_DIR)
 	var dir := DirAccess.open(Global.LAYOUT_DIR)
+	# Copy every built-in layout that is missing, so layouts added in newer versions
+	# also reach users who already have a layout folder.
+	for layout in Global.default_layouts:
+		var file_name := layout.resource_path.get_file()
+		if dir.file_exists(file_name):
+			continue
+		var new_layout := layout.clone()
+		new_layout.layout_reset_path = layout.resource_path
+		ResourceSaver.save(new_layout, Global.LAYOUT_DIR.path_join(file_name))
 	var files := dir.get_files()
-	if files.size() == 0:
-		for layout in Global.default_layouts:
-			var file_name := layout.resource_path.get_basename().get_file() + ".tres"
-			var new_layout := layout.clone()
-			new_layout.layout_reset_path = layout.resource_path
-			ResourceSaver.save(new_layout, Global.LAYOUT_DIR.path_join(file_name))
-		files = dir.get_files()
 	for file in files:
 		var layout := ResourceLoader.load(Global.LAYOUT_DIR.path_join(file))
 		if layout is DockableLayout:
 			if layout.layout_reset_path.is_empty():
-				if file == "Default.tres":
-					layout.layout_reset_path = Global.default_layouts[0].resource_path
-				elif file == "Tallscreen.tres":
-					layout.layout_reset_path = Global.default_layouts[1].resource_path
+				for default_layout in Global.default_layouts:
+					if default_layout.resource_path.get_file() == file:
+						layout.layout_reset_path = default_layout.resource_path
 			Global.layouts.append(layout)
 			# Save the layout every time it changes
 			layout.save_on_change = true

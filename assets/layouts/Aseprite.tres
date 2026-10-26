@@ -1,0 +1,126 @@
+[gd_resource type="Resource" script_class="DockableLayout" format=3]
+
+[ext_resource type="Script" uid="uid://da67x3ua6ietw" path="res://addons/dockable_container/layout_panel.gd" id="1_jxh43"]
+[ext_resource type="Script" uid="uid://bvvbi3x82xnut" path="res://addons/dockable_container/layout_split.gd" id="2_lw52w"]
+[ext_resource type="Script" uid="uid://icucbtatip66" path="res://addons/dockable_container/layout.gd" id="3_4h5wj"]
+
+[sub_resource type="Resource" id="Tabs_palettes"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Palettes", "Layer FX")
+
+[sub_resource type="Resource" id="Tabs_color"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Color Picker", "Reference Images")
+
+[sub_resource type="Resource" id="Tabs_tool_options"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Left Tool Options", "Right Tool Options")
+
+[sub_resource type="Resource" id="Split_color_options"]
+resource_name = "Split"
+script = ExtResource("2_lw52w")
+direction = 1
+percent = 0.55
+first = SubResource("Tabs_color")
+second = SubResource("Tabs_tool_options")
+
+[sub_resource type="Resource" id="Split_color_bar"]
+resource_name = "Split"
+script = ExtResource("2_lw52w")
+direction = 1
+percent = 0.4
+first = SubResource("Tabs_palettes")
+second = SubResource("Split_color_options")
+
+[sub_resource type="Resource" id="Tabs_tools"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Tools")
+
+[sub_resource type="Resource" id="Tabs_extra"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Tiles", "3D Object Tree", "Canvas Preview", "Recorder", "Perspective Editor")
+
+[sub_resource type="Resource" id="Split_tools"]
+resource_name = "Split"
+script = ExtResource("2_lw52w")
+direction = 1
+percent = 1.0
+first = SubResource("Tabs_tools")
+second = SubResource("Tabs_extra")
+
+[sub_resource type="Resource" id="Tabs_context_bar"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Global Tool Options")
+
+[sub_resource type="Resource" id="Tabs_canvas"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Main Canvas")
+
+[sub_resource type="Resource" id="Tabs_second_canvas"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Second Canvas")
+
+[sub_resource type="Resource" id="Split_canvases"]
+resource_name = "Split"
+script = ExtResource("2_lw52w")
+percent = 1.0
+first = SubResource("Tabs_canvas")
+second = SubResource("Tabs_second_canvas")
+
+[sub_resource type="Resource" id="Tabs_timeline"]
+resource_name = "Tabs"
+script = ExtResource("1_jxh43")
+names = PackedStringArray("Animation Timeline")
+
+[sub_resource type="Resource" id="Split_canvas_timeline"]
+resource_name = "Split"
+script = ExtResource("2_lw52w")
+direction = 1
+percent = 0.74
+first = SubResource("Split_canvases")
+second = SubResource("Tabs_timeline")
+
+[sub_resource type="Resource" id="Split_center"]
+resource_name = "Split"
+script = ExtResource("2_lw52w")
+direction = 1
+percent = 0.0
+first = SubResource("Tabs_context_bar")
+second = SubResource("Split_canvas_timeline")
+
+[sub_resource type="Resource" id="Split_tools_center"]
+resource_name = "Split"
+script = ExtResource("2_lw52w")
+percent = 0.0
+first = SubResource("Split_tools")
+second = SubResource("Split_center")
+
+[sub_resource type="Resource" id="Split_root"]
+resource_name = "Split"
+script = ExtResource("2_lw52w")
+percent = 0.17
+first = SubResource("Split_color_bar")
+second = SubResource("Split_tools_center")
+
+[resource]
+resource_name = "Aseprite"
+script = ExtResource("3_4h5wj")
+root = SubResource("Split_root")
+hidden_tabs = {
+"3D Object Tree": true,
+"Canvas Preview": true,
+"Color Picker Sliders": true,
+"Perspective Editor": true,
+"Recorder": true,
+"Right Tool Options": true,
+"Second Canvas": true,
+"Tiles": true
+}

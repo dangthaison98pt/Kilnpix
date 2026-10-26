@@ -93,13 +93,13 @@ var preferences: Array[Preference] = [
 		"single_tool_mode",
 		"Tools/ToolOptions/SingleToolModeCheckBox",
 		"button_pressed",
-		DisplayServer.is_touchscreen_available()
+		true
 	),
 	Preference.new(
 		"share_options_between_tools",
 		"Tools/ToolOptions/ShareOptionsCheckBox",
 		"button_pressed",
-		false
+		true
 	),
 	Preference.new(
 		"left_tool_color", "Tools/ToolOptions/LeftToolColorButton", "color", Color("0086cf")
@@ -123,13 +123,13 @@ var preferences: Array[Preference] = [
 		"show_left_tool_icon",
 		"Cursors/CursorsContainer/LeftToolIconCheckbox",
 		"button_pressed",
-		true
+		false
 	),
 	Preference.new(
 		"show_right_tool_icon",
 		"Cursors/CursorsContainer/RightToolIconCheckbox",
 		"button_pressed",
-		true
+		false
 	),
 	Preference.new(
 		"left_square_indicator_visible",
