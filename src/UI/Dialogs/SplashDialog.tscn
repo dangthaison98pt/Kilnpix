@@ -1,6 +1,4 @@
 [gd_scene format=3 uid="uid://bnpb1aip3wdvw"]
-visible = false
-visible = false
 
 [ext_resource type="Script" uid="uid://qtjfdid13awe" path="res://src/UI/Dialogs/SplashDialog.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d1oxrkwndy5fi" path="res://assets/graphics/timeline/move_arrow.png" id="3"]
@@ -220,6 +218,7 @@ custom_minimum_size = Vector2(6, 0)
 layout_mode = 2
 
 [node name="PatronContainer" type="VBoxContainer" parent="Contents/MarginContainer/ButtonsPatronsLogos/Info" unique_id=693078769]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -263,6 +262,7 @@ size_flags_vertical = 3
 alignment = 2
 
 [node name="Links" type="VBoxContainer" parent="Contents/MarginContainer/ButtonsPatronsLogos/Info/VBoxContainer/Branding" unique_id=526362078]
+visible = false
 layout_mode = 2
 
 [node name="GithubButton" type="TextureButton" parent="Contents/MarginContainer/ButtonsPatronsLogos/Info/VBoxContainer/Branding/Links" unique_id=1962599931]
